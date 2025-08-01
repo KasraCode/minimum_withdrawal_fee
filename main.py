@@ -22,7 +22,7 @@ def find_minimum_withdrawal_fee(coin_data, available_coins, coin_prices):
         tether_amount.append((coin, tether, network))
     
     tether_amount = sorted(tether_amount, key=lambda x: x[1])
-    print(tether_amount)
+    return tether_amount
 
 nob_data = nobitex.get_nobitex_coin_data()
 
@@ -32,5 +32,6 @@ avail_coins = get_available_coins(nob_data, coin_prices.keys())
 
 
 minimum = find_minimum_withdrawal_fee(nob_data, avail_coins, coin_prices)
+print(minimum)
 
 nobitex.shutdown()
