@@ -5,11 +5,22 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from collections import defaultdict
 
-
 options = Options()
 options.add_argument("--headless")  
 options.add_argument("--no-sandbox")
-driver = webdriver.Chrome(options=options)
+driver = None
+
+def set_chrome():
+    driver = webdriver.Chrome(options=options)
+
+def set_firefox():
+    driver = webdriver.Firefox(options=options)
+
+def set_edge():
+    driver = webdriver.Edge(options=options)
+
+def set_safari():
+    driver = webdriver.Safari(options=options)
 
 def shutdown():
     driver.quit()
